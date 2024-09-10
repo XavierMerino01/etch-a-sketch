@@ -16,7 +16,17 @@ function CreateStartingGrid(gridSize) {
         newElement.classList.add("gridElement");
         newElement.style.height = `${sizePer}%`;
         newElement.style.width = `${sizePer}%`;
-        newElement.addEventListener('mouseover', () => { newElement.style.backgroundColor = "red"; });
+        newElement.addEventListener('mouseover', () => {
+
+            const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+            const r = randomBetween(0, 255);
+            const g = randomBetween(0, 255);
+            const b = randomBetween(0, 255);
+
+            newElement.style.backgroundColor = `rgb(${r},${g},${b})`;
+            newElement.style.opacity -= "-0.1";
+
+        });
         gridParent.appendChild(newElement)
 
     }
